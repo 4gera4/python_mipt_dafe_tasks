@@ -18,5 +18,7 @@ def adaptive_filter(
     k = diag_A.size
     E = np.eye(k)
     pre_result_invert = np.linalg.inv(E + VHj @ Vj @ A)
+    # в формуле раскрыты скобки и расставлены приоритеты,
+    # чтобы уменьшить размер матрицы для конечного вычисления
     result = Vs - Vj @ pre_result_invert @ (VHj @ Vs)
     return result
