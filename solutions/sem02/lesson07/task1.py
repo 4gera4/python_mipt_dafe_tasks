@@ -10,9 +10,9 @@ class ShapeMismatchError(Exception):
 
 def change_color_violin(violin_parts):
     for vp in violin_parts:
-        plt.setp(vp['bodies'], facecolor="#C71585", edgecolor="#FF1493")
-        
-        line_keys = set(vp.keys()) - {'bodies'}
+        plt.setp(vp["bodies"], facecolor="#C71585", edgecolor="#FF1493")
+
+        line_keys = set(vp.keys()) - {"bodies"}
         for key in line_keys:
             plt.setp(vp[key], edgecolor="#C71585")
 
@@ -24,12 +24,11 @@ def visualize_diagrams(
 ) -> None:
     if abscissa.shape != ordinates.shape:
         raise ShapeMismatchError
-    
+
     valid_types = ["hist", "violin", "box"]
 
     if diagram_type not in valid_types:
         raise ValueError
-    
 
     space = 0.2
 
@@ -46,9 +45,7 @@ def visualize_diagrams(
     )
     axis_scatter.scatter(abscissa, ordinates, color="#FF1493", alpha=0.5)
 
-
     if diagram_type == "hist":
-
         axis_hist_hor.hist(
             abscissa,
             bins=50,
@@ -84,7 +81,6 @@ def visualize_diagrams(
         axis_hist_hor.set_yticks([])
         axis_hist_vert.set_xticks([])
 
-            
     if diagram_type == "violin":
         violin_parts = np.empty(2, dtype=object)
         violin_parts[0] = axis_hist_hor.violinplot(
@@ -102,6 +98,7 @@ def visualize_diagrams(
         change_color_violin(violin_parts)
 
     axis_hist_vert.invert_xaxis()
+
 
 if __name__ == "__main__":
     mean = [2, 3]
