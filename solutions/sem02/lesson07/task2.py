@@ -27,8 +27,10 @@ def draw_diagram():
     before_counts, after_counts = get_arrays(data, mask)
 
     _, axes = plt.subplots(ncols=2, sharey=True)
+    axes[0].set_facecolor("#f2b1e8")
+    axes[1].set_facecolor("#f2b1e8")
 
-    axes[0].barh(list(mask.keys()), before_counts, color="#DF7DBA", align="center")
+    axes[0].barh(list(mask.keys()), before_counts, color="#B40097", align="center")
     axes[0].set_title("Before")
     axes[0].invert_xaxis()
 
@@ -41,7 +43,8 @@ def draw_diagram():
     plt.show()
 
 
-draw_diagram()
+if __name__ == "__main__":
+    draw_diagram()
 
 
 # самый главный вывод, по моему мнению, тот факт, что
