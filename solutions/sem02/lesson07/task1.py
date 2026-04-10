@@ -85,4 +85,4 @@ if __name__ == "__main__":
     abscissa, ordinates = np.random.multivariate_normal(mean, cov, size=1000).T
 
     visualize_diagrams(abscissa, ordinates, "violin")
-    #plt.show()
+    # plt.show()
